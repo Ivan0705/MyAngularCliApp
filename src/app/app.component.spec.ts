@@ -1,5 +1,5 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {TestBed} from '@angular/core/testing';
+import {AppComponent} from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -19,13 +19,14 @@ describe('AppComponent', () => {
   it(`should have as title 'MyAngularCliApp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('MyAngularCliApp');
+    expect(app);
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('MyAngularCliApp app is running!');
+    expect(compiled.querySelector('.container div')?.textContent).toContain('');
   });
+
 });

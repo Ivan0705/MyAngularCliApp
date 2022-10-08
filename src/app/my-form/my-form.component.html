@@ -1,0 +1,30 @@
+<form [formGroup]="myForm" novalidate (ngSubmit)="addCar()">
+  <div class="form-group">
+    <label>Название машины: </label>
+    <label>
+      <input class="form-control" name="carName" formControlName="carName" [(ngModel)]="carName"/>
+    </label>
+
+    <div class="alert alert-danger"
+         *ngIf="myForm.controls['carName'].invalid && myForm.controls['carName'].touched">
+     Не ввели название машины
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Выберите цвет машины: </label>
+    <label>
+      <select name="carColor" formControlName="carColor" [(ngModel)]="carColor"  [ngModel]="defaultColor">
+        <option *ngFor="let color of colors" value="{{color.color}}">{{color.color}}</option>
+      </select>
+    </label>
+    <div class="alert alert-danger"
+         *ngIf="myForm.controls['carColor'].invalid && myForm.controls['carColor'].touched">
+      Не выбрали цвет машины
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success" [@clickedDiv]="clickedDivState" [disabled]="myForm.invalid">
+      Отправить
+    </button>
+  </div>
+</form>

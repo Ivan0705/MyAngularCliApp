@@ -1,0 +1,16 @@
+<app-my-form (onAddCar)="addCar($event)"></app-my-form>
+<hr/>
+<div *ngFor="let car of cars">
+  <p>
+    <a [routerLink]="['/cars/'+car.id]"
+       [queryParams]="{color:car.color, name:car.name}">
+      <app-car [name]="car.name" [color]="car.color"></app-car>
+    </a>
+    <button class="btn btn-danger" (click)="deleteCar(car)">Удалить</button>
+    <button class="btn btn-info" (click)="setNewColor(car)" [ngStyle]="{width:'200px', height:'40px'}">изменить цвет
+      машины
+    </button>
+  </p>
+</div>
+
+
